@@ -20,8 +20,8 @@ randomArray();
 // Sort the 'testarray' to confirm that my sort algo's working correctly.
 console.log(testarray);
 
-mergesort(testarray);
-
+let newarr = mergesort(testarray);
+console.log(newarr);
   return (
     <div className="App">
       <Nav />
