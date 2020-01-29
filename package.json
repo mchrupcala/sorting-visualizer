@@ -1,0 +1,9 @@
+{
+  "name": "sorting-visualizer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/mchrupcala/sorting-visualizer.git",
+  "author": "mchrupcala",
+  "license": "MIT",
+  "private": false
+}
