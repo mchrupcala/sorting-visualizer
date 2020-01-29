@@ -1,0 +1,20 @@
+
+.nav {
+    /* background: red; */
+    height: 60px;
+}
+
+.main-dash {
+    display: flex;
+    height: 100%;
+}
+
+.dashboard-controls {
+    /* background: blue; */
+    width: 30%;
+}
+
+.visualizer {
+    /* background: yellow; */
+    width: 70%;
+}
