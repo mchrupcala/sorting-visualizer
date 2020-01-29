@@ -6,6 +6,20 @@ import DashboardControls from './components/DashboardControls';
 import Visualizer from './components/Visualizer';
 
 function App() {
+  let testarray = [];
+
+const randomArray = () => {
+  let rand = Math.random() * 100;
+  console.log(rand)
+  for (let i = 0; i < rand; i++) {
+    testarray.push(Math.floor(Math.random()*10) * i)
+  }
+}
+randomArray()
+
+// Sort the 'testarray' to confirm that my sort algo's working correctly.
+// console.log(testarray)
+
   return (
     <div className="App">
       <Nav />
