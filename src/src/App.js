@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 import './components/styles.css'
 import Nav from './components/Nav';
@@ -7,6 +7,7 @@ import Visualizer from './components/Visualizer';
 import {mergesort} from './algorithms/MergeSort';
 
 function App() {
+  let [sortedArray, setSortedArray] = useState([]);
   let testarray = [];
 
 const randomArray = () => {
@@ -17,11 +18,20 @@ const randomArray = () => {
   }
 }
 
+randomArray()
 //Confirm that a random array will be sorted correctly.
-randomArray();
+useEffect(() => {
+  setSortedArray(testarray);
+}, [])
 console.log(testarray);
-let sorted_array = mergesort(testarray);
-console.log(sorted_array);
+// setSortedArray(testarray);
+console.log(sortedArray);
+
+const start_sort = () => {
+  setSortedArray(mergesort(sortedArray));
+  console.log(sortedArray);
+}
+
 
 
 
@@ -30,8 +40,8 @@ console.log(sorted_array);
       <Nav />
       
       <div className="main-dash">
-        <DashboardControls />
-        <Visualizer sorted_array={sorted_array}/>
+        <DashboardControls start_sort={start_sort}/>
+        <Visualizer sortedArray={sortedArray}/>
       </div>
     </div>
   );

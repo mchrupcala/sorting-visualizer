@@ -29,6 +29,6 @@
 
 .one-bar {
 background: red;
-height: 400px;
+/* height: 400px; */
 width: 25px;
 }
