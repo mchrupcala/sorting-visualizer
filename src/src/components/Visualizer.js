@@ -4,9 +4,9 @@ import './styles.css'
 const Visualizer = (props) => {
 
     const bars = () => {
-        return props.sorted_array.map(i => {
+        return props.sortedArray.map(i => {
             return (
-                <div className="one-bar">
+                <div className="one-bar" style={{height: `${i}px`}}>
                     {i}
                 </div>
             )
