@@ -16,19 +16,22 @@ const randomArray = () => {
     testarray.push(Math.floor(Math.random()*10) * i)
   }
 }
-randomArray();
-// Sort the 'testarray' to confirm that my sort algo's working correctly.
-console.log(testarray);
 
-let newarr = mergesort(testarray);
-console.log(newarr);
+//Confirm that a random array will be sorted correctly.
+randomArray();
+console.log(testarray);
+let sorted_array = mergesort(testarray);
+console.log(sorted_array);
+
+
+
   return (
     <div className="App">
       <Nav />
       
       <div className="main-dash">
         <DashboardControls />
-        <Visualizer />
+        <Visualizer sorted_array={sorted_array}/>
       </div>
     </div>
   );
