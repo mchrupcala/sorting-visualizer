@@ -1,10 +1,25 @@
 import React from "react";
+import './styles.css'
+
+const Visualizer = (props) => {
+
+    const bars = () => {
+        return props.sorted_array.map(i => {
+            return (
+                <div className="one-bar">
+                    {i}
+                </div>
+            )
+        })
+    }
 
 
-const Visualizer = () => {
+
     return (
         <div className="visualizer">
-            Hi from Visualizer
+            <div className="graph">
+                {bars()}
+            </div>
         </div>
     )
 }

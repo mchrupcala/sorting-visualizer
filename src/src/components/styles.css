@@ -18,3 +18,17 @@
     /* background: yellow; */
     width: 70%;
 }
+
+.graph {
+    display: flex;
+}
+
+.graph div {
+    margin: 1px;
+}
+
+.one-bar {
+background: red;
+height: 400px;
+width: 25px;
+}
