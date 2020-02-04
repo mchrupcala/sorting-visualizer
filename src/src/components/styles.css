@@ -32,3 +32,7 @@ background: red;
 /* height: 400px; */
 width: 25px;
 }
+
+.sort-banner {
+    cursor: pointer;
+}

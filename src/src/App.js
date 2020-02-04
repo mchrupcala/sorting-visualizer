@@ -24,7 +24,7 @@ const SECONDARY_COLOR = 'red';
 
 
 const randomArray = () => {
-  let rand = Math.random() * 100;
+  let rand = (Math.random()+0.01) * 100;
   console.log(rand)
   for (let i = 0; i < rand; i++) {
     testarray.push(Math.floor(Math.random()*10) * i)
@@ -48,7 +48,6 @@ useEffect(() => {
 const start_sort = () => {
   // setSortedArray(mergesort(sortedArray));
   const animations = getMergeSortAnimations(sortedArray);
-  console.log(animations);
   for (let i = 0; i < animations.length; i++) {
     const arrayBars = document.getElementsByClassName('one-bar');
     const isColorChange = i % 3 !== 2;

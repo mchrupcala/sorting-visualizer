@@ -14,11 +14,6 @@ const Visualizer = (props) => {
     }
 
 
-    //sortedArray is both the UNSORTED & SORTED arrays.
-    //Clement --> array = UNSORTED, animations = SORTED
-    //UNSORTED is only reset when app's refreshed (useState), or "Generate" onClick
-
-
 
     return (
         <div className="visualizer">
