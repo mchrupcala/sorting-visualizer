@@ -5,13 +5,14 @@ import Nav from './components/Nav';
 import DashboardControls from './components/DashboardControls';
 import Visualizer from './components/Visualizer';
 import {getMergeSortAnimations} from './algorithms/MergeSort';
+import {getBubbleSortAnimations} from './algorithms/BubbleSort';
 
 function App() {
   let [sortedArray, setSortedArray] = useState([]);
   let testarray = [];
 
   // Change this value for the speed of the animations.
-const ANIMATION_SPEED_MS = 10;
+const ANIMATION_SPEED_MS = 160;
 
 // Change this value for the number of bars (value) in the array.
 let NUMBER_OF_ARRAY_BARS = 0;
@@ -36,6 +37,7 @@ const resetArray = () => {
   randomArray();
   NUMBER_OF_ARRAY_BARS = testarray.length;
   setSortedArray(testarray);
+  console.log(testarray);
 }
 
 //Confirms that a random array will be sorted correctly. sortedArray is initalized w/ testarray...then on-click, mergesort is applied to it.

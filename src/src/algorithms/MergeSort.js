@@ -14,9 +14,17 @@ export function getMergeSortAnimations(array) {
     animations,
   ) {
     if (startIdx === endIdx) return;
+
+    //find the index where I can split the array in half...
     const middleIdx = Math.floor((startIdx + endIdx) / 2);
+    
+    //recursively call function against the left half
     mergeSortHelper(auxiliaryArray, startIdx, middleIdx, mainArray, animations);
+    
+    //recursively call function against the right half
     mergeSortHelper(auxiliaryArray, middleIdx + 1, endIdx, mainArray, animations);
+    
+
     doMerge(mainArray, startIdx, middleIdx, endIdx, auxiliaryArray, animations);
   }
   
