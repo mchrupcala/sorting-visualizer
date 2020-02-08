@@ -46,8 +46,8 @@ useEffect(() => {
   resetArray();
 }, [])
 
-// let newvar = getQuickSortAnimations(sortedArray);
-// console.log(newvar);
+let newvar = getQuickSortAnimations(sortedArray);
+console.log(newvar);
 
 //!!write a ternary so that depending on which button a user clicks on, that sort is run
 
