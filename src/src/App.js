@@ -6,6 +6,7 @@ import DashboardControls from './components/DashboardControls';
 import Visualizer from './components/Visualizer';
 import {getMergeSortAnimations} from './algorithms/MergeSort';
 import {getBubbleSortAnimations} from './algorithms/BubbleSort';
+import {getQuickSortAnimations} from './algorithms/QuickSort';
 
 function App() {
   let [sortedArray, setSortedArray] = useState([]);
@@ -45,6 +46,10 @@ useEffect(() => {
   resetArray();
 }, [])
 
+// let newvar = getQuickSortAnimations(sortedArray);
+// console.log(newvar);
+
+//!!write a ternary so that depending on which button a user clicks on, that sort is run
 
 //Not sure if this will work without my useState hook on line 34.
 const start_sort = () => {
