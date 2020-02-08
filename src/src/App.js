@@ -46,20 +46,23 @@ useEffect(() => {
   resetArray();
 }, [])
 
-let newvar = getQuickSortAnimations(sortedArray);
-console.log(newvar);
+// let newvar = getQuickSortAnimations(sortedArray);
+// console.log(newvar);
 
 //!!write a ternary so that depending on which button a user clicks on, that sort is run
 
 //Not sure if this will work without my useState hook on line 34.
 const start_sort = () => {
   // setSortedArray(mergesort(sortedArray));
-  const animations = getMergeSortAnimations(sortedArray);
+  const animations = getQuickSortAnimations(sortedArray);
+  console.log(sortedArray);
   for (let i = 0; i < animations.length; i++) {
     const arrayBars = document.getElementsByClassName('one-bar');
     const isColorChange = i % 3 !== 2;
     if (isColorChange) {
       const [barOneIdx, barTwoIdx] = animations[i];
+      console.log(i);
+      console.log(animations[i], barOneIdx, barTwoIdx);
       const barOneStyle = arrayBars[barOneIdx].style;
       const barTwoStyle = arrayBars[barTwoIdx].style;
       const color = i % 3 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
