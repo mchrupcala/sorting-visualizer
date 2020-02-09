@@ -1,7 +1,6 @@
 export function getQuickSortAnimations(array) { 
     let animations = [];
     if (array.length <= 1) return array;
-    console.log(animations)
     quickSort(array, 0, array.length-1, animations);
     return animations;
 }
@@ -9,7 +8,7 @@ export function getQuickSortAnimations(array) {
 
 // https://www.geeksforgeeks.org/quick-sort/
 
-function partition(array,low, high, animations) {
+function partition(array, low, high, animations) {
     // console.log("Animations: ", animations)
     // pivot (Element to be placed at right position)
     let pivot = array[high];  
@@ -22,34 +21,25 @@ function partition(array,low, high, animations) {
         if (array[j] < pivot)
         {
             i++;    // increment index of smaller element
-            if (animations) {
-                animations.push([i, j])
-                animations.push([i, j])
-            }
             let temp = array[j];
             array[j] = array[i];
             array[i] = temp;
-            animations.push([j, i])
+            if (i !== j) {
+                animations.push([j, i]);
+                animations.push([j, i]);
+                animations.push([i, array[j], j, array[i]]);
+                // animations.push([]);
+            }
         }
-        // else {
-        //     if (animations) {
-        //         animations.push([i, j])
-        //         animations.push([i, j])
-        //         animations.push([i, j])
-        //     }
-        // }
     }
+    animations.push([i+1, high]);
+    animations.push([i+1, high]);
     let temp = array[high];
+    animations.push([i+1, array[i+1], high, array[high]]);
+    // animations.push([]);
     array[high] = array[i+1];
     array[i+1] = temp;
-    animations.push([i+1, high])
-    animations.push([i+1, high])
-    animations.push([i+1, high])
-    // if (animations) {
-    //     animations.push([i, high])
-    //     animations.push([i, high])
-    //     animations.push([i, high])
-    // }
+
     return (i + 1)
 }
 
