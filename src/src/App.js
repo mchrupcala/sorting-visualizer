@@ -9,6 +9,7 @@ import {getBubbleSortAnimations} from './algorithms/BubbleSort';
 import {getQuickSortAnimations} from './algorithms/QuickSort';
 import {getHeapSortAnimations} from './algorithms/HeapSort';
 
+
 function App() {
   let [sortedArray, setSortedArray] = useState([]);
   let [trueSort, setTrueSort] = useState([]);
@@ -39,7 +40,6 @@ const resetArray = () => {
   randomArray();
   NUMBER_OF_ARRAY_BARS = testarray.length;
   setSortedArray(testarray);
-  console.log(testarray);
 }
 
 //Confirms that a random array will be sorted correctly. sortedArray is initalized w/ testarray...then on-click, mergesort is applied to it.
@@ -136,8 +136,6 @@ const heap_sort = () => {
 }
 
 
-
-
   return (
     <div className="App">
       <Nav />
@@ -149,7 +147,8 @@ const heap_sort = () => {
         quick_sort={quick_sort}
         heap_sort={heap_sort}
         />
-        <Visualizer sortedArray={sortedArray} trueSort={trueSort}/>
+        <Visualizer randomArray={randomArray} resetArray={resetArray} sortedArray={sortedArray} trueSort={trueSort} />
+
       </div>
     </div>
   );
