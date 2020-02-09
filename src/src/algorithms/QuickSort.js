@@ -23,21 +23,33 @@ function partition(array,low, high, animations) {
         {
             i++;    // increment index of smaller element
             if (animations) {
-                animations.push([array[j], pivot])
-                // animations.push([array[j], pivot])
-                // animations.push([array[j], pivot])
+                animations.push([i, j])
+                animations.push([i, j])
             }
             let temp = array[j];
             array[j] = array[i];
             array[i] = temp;
+            animations.push([j, i])
         }
+        // else {
+        //     if (animations) {
+        //         animations.push([i, j])
+        //         animations.push([i, j])
+        //         animations.push([i, j])
+        //     }
+        // }
     }
     let temp = array[high];
     array[high] = array[i+1];
     array[i+1] = temp;
-    animations.push([array[high], array[i+1]])
-    animations.push([array[high], array[i+1]])
-    animations.push([array[high], array[i+1]])
+    animations.push([i+1, high])
+    animations.push([i+1, high])
+    animations.push([i+1, high])
+    // if (animations) {
+    //     animations.push([i, high])
+    //     animations.push([i, high])
+    //     animations.push([i, high])
+    // }
     return (i + 1)
 }
 
