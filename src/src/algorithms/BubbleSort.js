@@ -6,7 +6,13 @@ export function getBubbleSortAnimations(array) {
     return animations;
 }
 
-function swap(array, left_int, right_int) {
+function swap(array, left_int, right_int, animations) {
+    //Value that I'm highlighting red so the user knows we're considering
+    animations.push([left_int, right_int, 0])
+    //Highlighting back to primary color
+    animations.push([left_int, right_int, 1])
+    // Swapping the heights of both values here
+    animations.push([left_int, array[left_int], right_int, array[right_int]])
     let temp = array[left_int];
     array[left_int] = array[right_int];
     array[right_int] = temp;
@@ -19,17 +25,10 @@ function bubbleSort(
     for (let i = 0; i < array.length; i++) {
         for (let j = 0; j < array.length-1; j++) {
             if (array[j] > array[j+1]) {
-                animations.push([j, j+1]);
-                animations.push([j, j+1]);
-                animations.push([j, j+1]);
-                swap(array, j, j+1);
+                swap(array, j, j+1, animations);
+            } else {
             }
         }
     }
     return array;
 }
-
-
-//TL;DR...I can write my sort algo's however I want/need to. just make sure that each step of the sort, I'm passing in & pushing to ANIMATIONS 3x.
-
-
