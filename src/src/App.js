@@ -7,6 +7,8 @@ import Visualizer from './components/Visualizer';
 import {getMergeSortAnimations} from './algorithms/MergeSort';
 import {getBubbleSortAnimations} from './algorithms/BubbleSort';
 import {getQuickSortAnimations} from './algorithms/QuickSort';
+import {getHeapSortAnimations} from './algorithms/HeapSort';
+
 
 function App() {
   let [sortedArray, setSortedArray] = useState([]);
@@ -38,7 +40,6 @@ const resetArray = () => {
   randomArray();
   NUMBER_OF_ARRAY_BARS = testarray.length;
   setSortedArray(testarray);
-  console.log(testarray);
 }
 
 //Confirms that a random array will be sorted correctly. sortedArray is initalized w/ testarray...then on-click, mergesort is applied to it.
@@ -76,7 +77,6 @@ const merge_sort = () => {
 }
 }
 
-
 const bubble_sort = () => {
   const animations = getBubbleSortAnimations(sortedArray);
   for (let i = 0; i < animations.length; i++) {
@@ -102,7 +102,6 @@ const bubble_sort = () => {
     }
 }
 }
-
 
 const quick_sort = () => {
   // setSortedArray(mergesort(sortedArray));
@@ -132,7 +131,9 @@ const quick_sort = () => {
 }
 }
 
-
+const heap_sort = () => {
+  const animations = getHeapSortAnimations(sortedArray);
+}
 
 
   return (
@@ -143,8 +144,11 @@ const quick_sort = () => {
         <DashboardControls 
         merge_sort={merge_sort} 
         bubble_sort={bubble_sort} 
-        quick_sort={quick_sort}/>
-        <Visualizer sortedArray={sortedArray} trueSort={trueSort}/>
+        quick_sort={quick_sort}
+        heap_sort={heap_sort}
+        />
+        <Visualizer randomArray={randomArray} resetArray={resetArray} sortedArray={sortedArray} trueSort={trueSort} />
+
       </div>
     </div>
   );

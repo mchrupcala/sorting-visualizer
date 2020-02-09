@@ -16,11 +16,13 @@
 
 .visualizer {
     /* background: yellow; */
+    margin-left: 20%;
     width: 70%;
 }
 
 .graph {
     display: flex;
+    align-items: center;
 }
 
 .graph div {
@@ -35,4 +37,16 @@ width: 25px;
 
 .sort-banner {
     cursor: pointer;
+}
+
+.styledC {
+    align-items: center;
+}
+
+.styledS {
+    align-items: flex-start;
+}
+
+.styledE {
+    align-items: flex-end;
 }
