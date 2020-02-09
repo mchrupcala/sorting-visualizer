@@ -7,6 +7,7 @@ import Visualizer from './components/Visualizer';
 import {getMergeSortAnimations} from './algorithms/MergeSort';
 import {getBubbleSortAnimations} from './algorithms/BubbleSort';
 import {getQuickSortAnimations} from './algorithms/QuickSort';
+import {getHeapSortAnimations} from './algorithms/HeapSort';
 
 function App() {
   let [sortedArray, setSortedArray] = useState([]);
@@ -76,7 +77,6 @@ const merge_sort = () => {
 }
 }
 
-
 const bubble_sort = () => {
   const animations = getBubbleSortAnimations(sortedArray);
   for (let i = 0; i < animations.length; i++) {
@@ -102,7 +102,6 @@ const bubble_sort = () => {
     }
 }
 }
-
 
 const quick_sort = () => {
   // setSortedArray(mergesort(sortedArray));
@@ -132,6 +131,10 @@ const quick_sort = () => {
 }
 }
 
+const heap_sort = () => {
+  const animations = getHeapSortAnimations(sortedArray);
+}
+
 
 
 
@@ -143,7 +146,9 @@ const quick_sort = () => {
         <DashboardControls 
         merge_sort={merge_sort} 
         bubble_sort={bubble_sort} 
-        quick_sort={quick_sort}/>
+        quick_sort={quick_sort}
+        heap_sort={heap_sort}
+        />
         <Visualizer sortedArray={sortedArray} trueSort={trueSort}/>
       </div>
     </div>
