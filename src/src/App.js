@@ -14,7 +14,7 @@ function App() {
   let testarray = [];
 
   // Change this value for the speed of the animations.
-const ANIMATION_SPEED_MS = 10;
+const ANIMATION_SPEED_MS = 50;
 
 // Change this value for the number of bars (value) in the array.
 let NUMBER_OF_ARRAY_BARS = 0;
@@ -94,7 +94,35 @@ const bubble_sort = () => {
     } else {
       setTimeout(() => {
         const [barOneIdx, barOneNewHeight, barTwoIdx, barTwoNewHeight] = animations[i];
-        console.log([barOneIdx, barOneNewHeight, barTwoIdx, barTwoNewHeight])
+        const barOneStyle = arrayBars[barOneIdx].style;
+        const barTwoStyle = arrayBars[barTwoIdx].style;
+        barOneStyle.height = `${barTwoNewHeight}px`;
+        barTwoStyle.height = `${barOneNewHeight}px`;
+      }, i * ANIMATION_SPEED_MS);
+    }
+}
+}
+
+
+const quick_sort = () => {
+  // setSortedArray(mergesort(sortedArray));
+  const animations = getQuickSortAnimations(sortedArray);
+  // setTrueSort(sortedArray);
+  for (let i = 0; i < animations.length; i++) {
+    const arrayBars = document.getElementsByClassName('one-bar');
+    const isColorChange = i % 3 === 0 || i % 3 === 1 ? true: false;
+    if (isColorChange) {
+      let [barOneIdx, barTwoIdx] = animations[i];
+      const barOneStyle = arrayBars[barOneIdx].style;
+      const barTwoStyle = arrayBars[barTwoIdx].style;
+      const color = i % 3 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
+      setTimeout(() => {
+        barOneStyle.backgroundColor = color;
+        barTwoStyle.backgroundColor = color;
+      }, i * ANIMATION_SPEED_MS);
+    } else {
+      setTimeout(() => {
+        const [barOneIdx, barOneNewHeight, barTwoIdx, barTwoNewHeight] = animations[i];
         const barOneStyle = arrayBars[barOneIdx].style;
         const barTwoStyle = arrayBars[barTwoIdx].style;
         barOneStyle.height = `${barTwoNewHeight}px`;
@@ -112,7 +140,10 @@ const bubble_sort = () => {
       <Nav />
       
       <div className="main-dash">
-        <DashboardControls merge_sort={merge_sort} bubble_sort={bubble_sort}/>
+        <DashboardControls 
+        merge_sort={merge_sort} 
+        bubble_sort={bubble_sort} 
+        quick_sort={quick_sort}/>
         <Visualizer sortedArray={sortedArray} trueSort={trueSort}/>
       </div>
     </div>
