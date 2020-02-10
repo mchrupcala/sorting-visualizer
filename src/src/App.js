@@ -14,7 +14,7 @@ function App() {
   let [sortedArray, setSortedArray] = useState([]);
   let [trueSort, setTrueSort] = useState([]);
   let testarray = [];
-
+  let animations;
   // Change this value for the speed of the animations.
 const ANIMATION_SPEED_MS = 50;
 
@@ -29,7 +29,8 @@ const SECONDARY_COLOR = 'red';
 
 
 const randomArray = () => {
-  let rand = (Math.random()+0.01) * 100;
+  let rand = (Math.random()+0.01) * 75;
+  console.log(rand);
   for (let i = 0; i < rand; i++) {
     testarray.push(Math.floor(Math.random()*10) * i)
   }
@@ -37,6 +38,7 @@ const randomArray = () => {
 
 //Also call this function when the user clicks to reset/generate a new function.
 const resetArray = () => {
+  setSortedArray([]);
   randomArray();
   NUMBER_OF_ARRAY_BARS = testarray.length;
   setSortedArray(testarray);
@@ -52,8 +54,9 @@ useEffect(() => {
 
 //Not sure if this will work without my useState hook on line 34.
 const merge_sort = () => {
+  // setAlgo('Merge Sort');
   // setSortedArray(mergesort(sortedArray));
-  const animations = getMergeSortAnimations(sortedArray);
+  animations = getMergeSortAnimations(sortedArray);
   // setTrueSort(sortedArray);
   for (let i = 0; i < animations.length; i++) {
     const arrayBars = document.getElementsByClassName('one-bar');
@@ -78,7 +81,8 @@ const merge_sort = () => {
 }
 
 const bubble_sort = () => {
-  const animations = getBubbleSortAnimations(sortedArray);
+  // setAlgo('Bubble Sort');
+  animations = getBubbleSortAnimations(sortedArray);
   for (let i = 0; i < animations.length; i++) {
     const arrayBars = document.getElementsByClassName('one-bar');
     let [barOneIdx, barTwoIdx, dummy] = animations[i];
@@ -105,7 +109,7 @@ const bubble_sort = () => {
 
 const quick_sort = () => {
   // setSortedArray(mergesort(sortedArray));
-  const animations = getQuickSortAnimations(sortedArray);
+  animations = getQuickSortAnimations(sortedArray);
   // setTrueSort(sortedArray);
   for (let i = 0; i < animations.length; i++) {
     const arrayBars = document.getElementsByClassName('one-bar');
@@ -147,8 +151,14 @@ const heap_sort = () => {
         quick_sort={quick_sort}
         heap_sort={heap_sort}
         />
-        <Visualizer randomArray={randomArray} resetArray={resetArray} sortedArray={sortedArray} trueSort={trueSort} />
-
+          <div id="content">
+          <Visualizer 
+          randomArray={randomArray} 
+          resetArray={resetArray} 
+          sortedArray={sortedArray} 
+          trueSort={trueSort}
+          NUMBER_OF_ARRAY_BARS={NUMBER_OF_ARRAY_BARS} />
+          </div>
       </div>
     </div>
   );
