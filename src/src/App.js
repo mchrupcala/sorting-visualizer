@@ -57,7 +57,6 @@ const merge_sort = () => {
   // setAlgo('Merge Sort');
   // setSortedArray(mergesort(sortedArray));
   animations = getMergeSortAnimations(sortedArray);
-  // setTrueSort(sortedArray);
   for (let i = 0; i < animations.length; i++) {
     const arrayBars = document.getElementsByClassName('one-bar');
     const isColorChange = i % 3 !== 2;
@@ -135,29 +134,29 @@ const quick_sort = () => {
 }
 }
 
-const heap_sort = () => {
-  const animations = getHeapSortAnimations(sortedArray);
-}
+// const heap_sort = () => {
+//   const animations = getHeapSortAnimations(sortedArray);
+// }
 
 
   return (
     <div className="App">
-      <Nav />
-      
-      <div className="main-dash">
         <DashboardControls 
         merge_sort={merge_sort} 
         bubble_sort={bubble_sort} 
         quick_sort={quick_sort}
-        heap_sort={heap_sort}
+        // heap_sort={heap_sort}
         />
+      
+      <div className="main-dash">
+          <Nav />
           <div id="content">
-          <Visualizer 
-          randomArray={randomArray} 
-          resetArray={resetArray} 
-          sortedArray={sortedArray} 
-          trueSort={trueSort}
-          NUMBER_OF_ARRAY_BARS={NUMBER_OF_ARRAY_BARS} />
+            <Visualizer 
+            randomArray={randomArray} 
+            resetArray={resetArray} 
+            sortedArray={sortedArray} 
+            trueSort={trueSort}
+            NUMBER_OF_ARRAY_BARS={NUMBER_OF_ARRAY_BARS} />
           </div>
       </div>
     </div>
