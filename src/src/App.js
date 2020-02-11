@@ -3,11 +3,12 @@ import './App.css';
 import './components/styles.css'
 import Nav from './components/Nav';
 import DashboardControls from './components/DashboardControls';
+import MobileControls from './components/MobileControls';
 import Visualizer from './components/Visualizer';
 import {getMergeSortAnimations} from './algorithms/MergeSort';
 import {getBubbleSortAnimations} from './algorithms/BubbleSort';
 import {getQuickSortAnimations} from './algorithms/QuickSort';
-import {getHeapSortAnimations} from './algorithms/HeapSort';
+// import {getHeapSortAnimations} from './algorithms/HeapSort';
 
 
 function App() {
@@ -49,6 +50,26 @@ useEffect(() => {
   resetArray();
 }, [])
 
+let viewportWidth = window.innerWidth;
+
+const controller = () => {
+  if (viewportWidth > 600) {
+    return (
+      <DashboardControls 
+      merge_sort={merge_sort} 
+      bubble_sort={bubble_sort} 
+      quick_sort={quick_sort}
+      // heap_sort={heap_sort}
+      />
+  );
+  } else {
+    return (
+      <div>
+        ok
+      </div>
+    );
+  }
+}
 
 //!!write a ternary so that depending on which button a user clicks on, that sort is run
 
@@ -57,7 +78,6 @@ const merge_sort = () => {
   // setAlgo('Merge Sort');
   // setSortedArray(mergesort(sortedArray));
   animations = getMergeSortAnimations(sortedArray);
-  // setTrueSort(sortedArray);
   for (let i = 0; i < animations.length; i++) {
     const arrayBars = document.getElementsByClassName('one-bar');
     const isColorChange = i % 3 !== 2;
@@ -135,29 +155,39 @@ const quick_sort = () => {
 }
 }
 
-const heap_sort = () => {
-  const animations = getHeapSortAnimations(sortedArray);
-}
+// const heap_sort = () => {
+//   const animations = getHeapSortAnimations(sortedArray);
+// }
 
 
   return (
     <div className="App">
-      <Nav />
+      {/* {controller()}
+     */}
+           <DashboardControls 
+      merge_sort={merge_sort} 
+      bubble_sort={bubble_sort} 
+      quick_sort={quick_sort}
+      // heap_sort={heap_sort}
+      />
+
+
       
       <div className="main-dash">
-        <DashboardControls 
-        merge_sort={merge_sort} 
-        bubble_sort={bubble_sort} 
-        quick_sort={quick_sort}
-        heap_sort={heap_sort}
-        />
+          <Nav />
+          <MobileControls
+      className="mobile"
+      merge_sort={merge_sort} 
+      bubble_sort={bubble_sort} 
+      quick_sort={quick_sort}
+      />
           <div id="content">
-          <Visualizer 
-          randomArray={randomArray} 
-          resetArray={resetArray} 
-          sortedArray={sortedArray} 
-          trueSort={trueSort}
-          NUMBER_OF_ARRAY_BARS={NUMBER_OF_ARRAY_BARS} />
+            <Visualizer 
+            randomArray={randomArray} 
+            resetArray={resetArray} 
+            sortedArray={sortedArray} 
+            trueSort={trueSort}
+            NUMBER_OF_ARRAY_BARS={NUMBER_OF_ARRAY_BARS} />
           </div>
       </div>
     </div>
