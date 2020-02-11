@@ -6,6 +6,33 @@
     padding-left: 75px;
 }
 
+@media (max-width: 600px) {
+    .nav {
+        padding-left: 0;
+    }
+    .sort-choices {
+        padding-inline-start: 0;
+        margin-top: 0;
+    }
+}
+
+.sort-choices {
+    list-style: none;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.sort-choices li {
+    font-weight: bold;
+    font-size: 20px;
+    margin: 3px 0;
+    background: #eb5b5b;
+    color: white;
+    border: 1px solid white;
+    width: 100%;
+    cursor: pointer;
+}
 
 
 /********* DASHBOARD CONTROLS **********/
@@ -13,7 +40,7 @@
 .main-dash {
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 100%;
 }
 
 .main-dash #content {
@@ -28,7 +55,17 @@
     width: 30%;
 }
 
+@media (max-width: 600px) {
+    .desktop {
+        display: none;
+    }
+}
 
+@media (min-width: 600px) {
+    .mobile {
+        display: none;
+    }
+}
 
 
 

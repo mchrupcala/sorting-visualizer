@@ -3,11 +3,12 @@ import './App.css';
 import './components/styles.css'
 import Nav from './components/Nav';
 import DashboardControls from './components/DashboardControls';
+import MobileControls from './components/MobileControls';
 import Visualizer from './components/Visualizer';
 import {getMergeSortAnimations} from './algorithms/MergeSort';
 import {getBubbleSortAnimations} from './algorithms/BubbleSort';
 import {getQuickSortAnimations} from './algorithms/QuickSort';
-import {getHeapSortAnimations} from './algorithms/HeapSort';
+// import {getHeapSortAnimations} from './algorithms/HeapSort';
 
 
 function App() {
@@ -49,6 +50,26 @@ useEffect(() => {
   resetArray();
 }, [])
 
+let viewportWidth = window.innerWidth;
+
+const controller = () => {
+  if (viewportWidth > 600) {
+    return (
+      <DashboardControls 
+      merge_sort={merge_sort} 
+      bubble_sort={bubble_sort} 
+      quick_sort={quick_sort}
+      // heap_sort={heap_sort}
+      />
+  );
+  } else {
+    return (
+      <div>
+        ok
+      </div>
+    );
+  }
+}
 
 //!!write a ternary so that depending on which button a user clicks on, that sort is run
 
@@ -141,15 +162,25 @@ const quick_sort = () => {
 
   return (
     <div className="App">
-        <DashboardControls 
-        merge_sort={merge_sort} 
-        bubble_sort={bubble_sort} 
-        quick_sort={quick_sort}
-        // heap_sort={heap_sort}
-        />
+      {/* {controller()}
+     */}
+           <DashboardControls 
+      merge_sort={merge_sort} 
+      bubble_sort={bubble_sort} 
+      quick_sort={quick_sort}
+      // heap_sort={heap_sort}
+      />
+
+
       
       <div className="main-dash">
           <Nav />
+          <MobileControls
+      className="mobile"
+      merge_sort={merge_sort} 
+      bubble_sort={bubble_sort} 
+      quick_sort={quick_sort}
+      />
           <div id="content">
             <Visualizer 
             randomArray={randomArray} 

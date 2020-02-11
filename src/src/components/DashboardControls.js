@@ -7,7 +7,7 @@ import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 const DashboardControls = (props) => {
     return (
 
-        <SideNav
+        <SideNav className="desktop"
     // onSelect={(selected) => {
     //     props.selected
     // }}
