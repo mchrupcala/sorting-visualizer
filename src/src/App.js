@@ -174,7 +174,10 @@ const quick_sort = () => {
 
       
       <div className="main-dash">
-          <Nav />
+          <Nav 
+          merge_sort={merge_sort} 
+          bubble_sort={bubble_sort} 
+          quick_sort={quick_sort}/>
           <MobileControls
       className="mobile"
       merge_sort={merge_sort} 
@@ -183,6 +186,7 @@ const quick_sort = () => {
       />
           <div id="content">
             <Visualizer 
+
             randomArray={randomArray} 
             resetArray={resetArray} 
             sortedArray={sortedArray} 
